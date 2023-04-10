@@ -4,32 +4,22 @@ package main
 
 import "fmt"
 
-
-func even_fibonacci_sum(last_int int64) {
-  var sum int64 = 2
+func even_fibo(end int64) {
+  var sum int64 = 0
   var first int64 = 1
-  var second int64 = 2
+  var second int64 = 1
   var new int64 = 0
-  for { 
-   new = first + second
-   fmt.Println("New:", new)   
-   if new>=last_int {
-     fmt.Println("result:", sum)
-     break
-     } else {
-     if new%2==0 {
-       sum = sum + new
-       fmt.Println("sum:",sum)  
-       }
-     first = second
-     fmt.Println("first:", first)
-     second = new
-     fmt.Println("second:", second)
+  for second<end {
+    new = first + second
+    if second%2 == 0 {
+      sum = sum + second
+      }
+    first = second
+    second = new
     }
-   }
-  }
-
+  fmt.Println("Result:", sum)
+}
 
 func main() {    
-    even_fibonacci_sum(4000000)
+    even_fibo(4000000)    
 }
